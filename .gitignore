@@ -1,0 +1,9 @@
+dev
+data
+*.zip
+*.csv
+Pipfile
+*.lock
+*.vec
+.idea
+.ipynb_checkpoints
