@@ -8,3 +8,4 @@ Pipfile
 .idea
 .ipynb_checkpoints
 __pycache__
+.models

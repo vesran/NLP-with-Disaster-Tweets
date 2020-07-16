@@ -65,6 +65,8 @@ def clean(sent):
     """
     sent = re.sub('[^%s]' % string.printable, '', sent)
     sent = decontracted(sent)
+    sent = re.sub('&lt', '', sent)
+    sent = re.sub('&gt', '', sent)
     sent = " ".join(text_processor.pre_process_doc(sent.lower()))
     sent = re.sub('<.*?>', '', sent)
     sent = re.sub(r'\w*\d\w*', '', sent)
@@ -112,5 +114,3 @@ print(f'train.shape=({train.shape})')
 df = pd.concat([train, test])
 outfile = "./data/clean_entire_corpus.csv"
 df.to_csv(outfile, index=False)
-
-
