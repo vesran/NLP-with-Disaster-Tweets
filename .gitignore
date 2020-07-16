@@ -7,3 +7,4 @@ Pipfile
 *.vec
 .idea
 .ipynb_checkpoints
+__pycache__
