@@ -18,14 +18,10 @@ def get_vocabulary(iter_sents):
 
 
 # Read & split train test
-filename = './data/entire_corpus.csv'
+filename = './data/clean_entire_corpus.csv'
 df = pd.read_csv(filename)
 df_train = df[df['source'] == 'train'].copy()
 df_test = df[df['source'] == 'test'].copy()
-
-# Clean
-df_train['text'] = df_train['text'].apply(clean)
-df_test['text'] = df_test['text'].apply(clean)
 
 df_train['keyword'] = df_train['keyword'].fillna('_')
 df_test['keyword'] = df_test['keyword'].fillna('_')
@@ -37,9 +33,9 @@ _, max_length = get_vocabulary(df_train['text'])
 keywords = []
 
 tokenizer = tf.keras.preprocessing.text.Tokenizer()
-tokenizer.fit_on_texts(df_train['text'])
-sequences_train = tokenizer.texts_to_sequences(df_train['text'])
-sequences_test = tokenizer.texts_to_sequences(df_test['text'])
+tokenizer.fit_on_texts(df_train['clean_text'])
+sequences_train = tokenizer.texts_to_sequences(df_train['clean_text'])
+sequences_test = tokenizer.texts_to_sequences(df_test['clean_text'])
 
 sequences_keyword_train = tokenizer.texts_to_sequences(df_train['keyword'])
 sequences_keyword_test = tokenizer.texts_to_sequences(df_test['keyword'])
@@ -94,7 +90,8 @@ for word, i in word_index.items():
 input_tweet = tf.keras.layers.Input(shape=(max_length, ))
 input_keyword = tf.keras.layers.Input(shape=(2, ))
 
-embeddings = tf.keras.layers.Embedding(input_dim=len(word_index)+1, input_length=max_length, output_dim=EMBEDDINGS_LENGTH, weights=[embedding_matrix], trainable=False)
+embeddings = tf.keras.layers.Embedding(input_dim=len(word_index)+1, input_length=max_length,
+                                       output_dim=EMBEDDINGS_LENGTH, weights=[embedding_matrix], trainable=False)
 
 # Tweets
 x = embeddings(input_tweet)

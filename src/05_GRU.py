@@ -17,22 +17,18 @@ def get_vocabulary(iter_sents):
 
 
 # Read & split train test
-filename = './data/entire_corpus.csv'
+filename = './data/clean_entire_corpus.csv'
 df = pd.read_csv(filename)
 df_train = df[df['source'] == 'train'].copy()
 df_test = df[df['source'] == 'test'].copy()
 
-# Clean
-df_train['text'] = df_train['text'].apply(clean)
-df_test['text'] = df_test['text'].apply(clean)
-
 # Encoding
-vocab, max_length = get_vocabulary(df_train['text'])
+vocab, max_length = get_vocabulary(df_train['clean_text'])
 
 tokenizer = tf.keras.preprocessing.text.Tokenizer()
-tokenizer.fit_on_texts(df_train['text'])
-sequences_train = tokenizer.texts_to_sequences(df_train['text'])
-sequences_test = tokenizer.texts_to_sequences(df_test['text'])
+tokenizer.fit_on_texts(df_train['clean_text'])
+sequences_train = tokenizer.texts_to_sequences(df_train['clean_text'])
+sequences_test = tokenizer.texts_to_sequences(df_test['clean_text'])
 
 # Padding
 padded_seqs_train = tf.keras.preprocessing.sequence.pad_sequences(sequences_train, maxlen=max_length,
