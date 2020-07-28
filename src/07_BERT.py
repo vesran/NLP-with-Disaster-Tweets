@@ -73,13 +73,13 @@ do_lower_case = bert_layer.resolved_object.do_lower_case.numpy()
 tokenizer = FullTokenizer(vocab_file, do_lower_case)
 
 print("Encode train/test")
-train_input = bert_encode(df_train.clean_text.values, tokenizer, max_len=160)
-test_input = bert_encode(df_test.clean_text.values, tokenizer, max_len=160)
+train_input = bert_encode(df_train.clean_text.values, tokenizer, max_len=40)
+test_input = bert_encode(df_test.clean_text.values, tokenizer, max_len=40)
 train_labels = df_train.target.values
 test_labels = df_test.target.values
 
 print("Building model")
-model = build_model(bert_layer, max_len=160)
+model = build_model(bert_layer, max_len=40)
 
 
 train_history = model.fit(
