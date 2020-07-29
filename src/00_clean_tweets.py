@@ -105,8 +105,52 @@ def correct_be(sent):
 train['clean_text'] = train['clean_text'].apply(correct_be)
 test['clean_text'] = test['clean_text'].apply(correct_be)
 
+
+def custom_cleaning(sent):
+    sent = re.sub('hwo', 'how', sent)
+    sent = re.sub(' yr ', ' year ', sent)
+    sent = re.sub('^yr ', 'year ', sent)
+    sent = re.sub(' yr$', ' year', sent)
+    sent = re.sub('somethin ', 'something ', sent)
+    sent = re.sub('somethin$', 'something', sent)
+    sent = re.sub('stil ', 'still ', sent)
+    sent = re.sub('stil$', 'still', sent)
+    sent = re.sub(' rt ', ' real talk ', sent)
+    sent = re.sub(' rt$', ' real talk', sent)
+    sent = re.sub('mr ', 'mister ', sent)
+    sent = re.sub('daubt', 'doubt', sent)
+    sent = re.sub('notwins', 'twins', sent)
+    sent = re.sub('livin', 'living', sent)
+    sent = re.sub('thrarchives', 'archives', sent)
+    sent = re.sub('humanityi', 'humanity i', sent)
+    sent = re.sub('thursd$', 'thrusday', sent)
+    sent = re.sub('thursd ', 'thrusday ', sent)
+    sent = re.sub('isuicide', 'suicide', sent)
+    sent = re.sub(' bumpin ', ' bumping ', sent)
+    sent = re.sub(' bumpin$', ' bumping', sent)
+    sent = re.sub(' makin ', ' making ', sent)
+    sent = re.sub(' makin$', ' making', sent)
+    sent = re.sub('chonce', 'chance', sent)
+    sent = re.sub('femnism', 'feminism', sent)
+    sent = re.sub('cryibg', 'crying', sent)
+    sent = re.sub('tryna', 'trying to', sent)
+    sent = re.sub('notpanic', 'not panic', sent)
+    sent = re.sub('raod', 'road', sent)
+    sent = re.sub('hasarrived', 'has arrivied', sent)
+    sent = re.sub(' carryi ', 'carrying ', sent)
+    sent = re.sub(' carryi$', 'carrying', sent)
+    sent = re.sub('musik', 'music', sent)
+    sent = re.sub('goodlook', 'good look', sent)
+    sent = re.sub('swiming', 'swimming', sent)
+    return sent
+
+
+train['clean_text'] = train['clean_text'].apply(custom_cleaning)
+test['clean_text'] = test['clean_text'].apply(custom_cleaning)
+
+
 # Remove duplicates caused by cleaning
-train = train.drop_duplicates(keep='first')
+train = train.drop_duplicates(keep='first', subset='clean_text')
 print(f'train.shape=({train.shape})')
 
 
