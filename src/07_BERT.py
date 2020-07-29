@@ -10,7 +10,7 @@ import tensorflow_hub as hub
 import re
 import string
 
-from src.bert_utils import *
+from src.utils.bert_utils import *
 
 
 # Read & split train test
