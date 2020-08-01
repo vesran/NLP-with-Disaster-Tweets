@@ -29,7 +29,14 @@ The goal is to build a machine learning model that predicts which Tweets are abo
 The dataset is composed of 10,000 tweets that were hand classified.
 
 
-## Overview
+## Solution overview
+
+### Data cleaning
+
+<a href='https://pypi.org/project/ekphrasis/'>Ekphrasis</a> offers a quick and interesting solution. Coupled with some additionnal regex work, it was possible to get a satisfying dataset.
+
+
+### Models
 
 Based on these solutions, BERT gives very good scores. It managed to provide embeddings for each tweets and separate the ones that deal with real disaster from the ones that does not.
 The images below show the separation these tweets. The point cloud is obtained from the input of the last network layer using PCA.
