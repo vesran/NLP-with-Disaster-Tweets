@@ -28,3 +28,15 @@ The author explicitly uses the word “ABLAZE” but means it metaphorically. Th
 The goal is to build a machine learning model that predicts which Tweets are about real disasters and which one’s aren’t. 
 The dataset is composed of 10,000 tweets that were hand classified.
 
+
+## Overview
+
+Based on these solutions, BERT gives very good scores. It managed to provide embeddings for each tweets and separate the ones that deal with real disaster from the ones that does not.
+The images below show the separation these tweets. The point cloud is obtained from the input of the last network layer using PCA.
+
+
+<img src='https://storage.googleapis.com/kaggle-media/competitions/tweet_screenshot.png' height=300, title='GloVe embeddings'>
+<img src='https://storage.googleapis.com/kaggle-media/competitions/tweet_screenshot.png' height=300, title='GloVe & CNN'>
+<img src='https://storage.googleapis.com/kaggle-media/competitions/tweet_screenshot.png' height=300, title='Glove & LSTM'>
+<img src='https://storage.googleapis.com/kaggle-media/competitions/tweet_screenshot.png' height=300, title='BERT'>
+
