@@ -35,8 +35,6 @@ Based on these solutions, BERT gives very good scores. It managed to provide emb
 The images below show the separation these tweets. The point cloud is obtained from the input of the last network layer using PCA.
 
 
-<img src='https://storage.googleapis.com/kaggle-media/competitions/tweet_screenshot.png' height=300, title='GloVe embeddings'>
-<img src='https://storage.googleapis.com/kaggle-media/competitions/tweet_screenshot.png' height=300, title='GloVe & CNN'>
-<img src='https://storage.googleapis.com/kaggle-media/competitions/tweet_screenshot.png' height=300, title='Glove & LSTM'>
-<img src='https://storage.googleapis.com/kaggle-media/competitions/tweet_screenshot.png' height=300, title='BERT'>
+<img src='https://github.com/vesran/NLP-with-Disaster-Tweets/blob/master/imgs/glove_pca.jpg' height=400, title='GloVe embeddings'> <img src='https://github.com/vesran/NLP-with-Disaster-Tweets/blob/master/imgs/cnn_pca.jpg' height=400, title='GloVe & CNN'>
+<img src='https://github.com/vesran/NLP-with-Disaster-Tweets/blob/master/imgs/lstm_pca.jpg' height=400, title='Glove & LSTM'> <img src='https://github.com/vesran/NLP-with-Disaster-Tweets/blob/master/imgs/bert_pca.jpg' height=400, title='BERT'>
 
